@@ -1,0 +1,222 @@
+{
+  "users": [
+    {
+      "name": "Jackson",
+      "email": "jcturnbull@me.com",
+      "contacts": [
+        {
+          "name": "Matt (Physical Therapist)",
+          "location": "New York, NY",
+          "always_interests": [
+            {
+              "topic": "Liverpool FC",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/LiverpoolFC"],
+              "related": ["Premier League table", "Arne Slot", "Anfield news", "Mohamed Salah contract saga", "Liverpool transfer rumors"]
+            }
+          ],
+          "sometimes_interests": [
+            {
+              "topic": "Juventus",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/Juve"],
+              "related": ["Serie A table", "Thiago Motta", "Italian football drama"],
+              "note": "This is for Gianluca the assistant, not Matt"
+            },
+            {
+              "topic": "Knicks",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/NYKnicks"],
+              "related": ["NBA Eastern Conference", "Jalen Brunson", "Madison Square Garden"]
+            },
+            {
+              "topic": "NYC notable local news",
+              "type": "news",
+              "sources": ["gothamist", "ny1", "nytimes:nyregion"],
+              "related": ["MTA drama", "NYC weather extremes", "Mayor Adams updates"]
+            }
+          ],
+          "social_platforms": [],
+          "notes": "Matt likes Liverpool. His assistant Gianluca likes Juventus. Safe to assume general interest in NYC sports and local happenings."
+        },
+        {
+          "name": "Kyle",
+          "location": "New York, NY",
+          "always_interests": [
+            {
+              "topic": "NY Giants",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/NYGiants"],
+              "related": ["NFL news", "NFC East standings", "Giants draft picks", "Brian Daboll", "Daniel Jones drama", "Saquon Barkley (now enemy - Eagles)"]
+            },
+            {
+              "topic": "Champions League",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/soccer"],
+              "related": ["UCL bracket", "knockout stage drama", "big upsets", "American players in Europe"]
+            },
+            {
+              "topic": "Duke Basketball",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/CollegeBasketball"],
+              "related": ["ACC standings", "Jon Scheyer", "Duke recruits", "Cameron Crazies", "Duke vs UNC rivalry", "NBA draft prospects from Duke"]
+            }
+          ],
+          "sometimes_interests": [
+            {
+              "topic": "March Madness",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/CollegeBasketball"],
+              "related": ["bracket predictions", "Cinderella teams", "buzzer beaters", "tournament upsets"],
+              "seasonal": "March-April"
+            },
+            {
+              "topic": "Sports betting lines",
+              "type": "sports",
+              "sources": ["espn", "actionnetwork"],
+              "related": ["spreads", "over/unders", "bad beats", "parlay wins/losses"],
+              "note": "Light interest - not a degenerate, just likes having skin in the game"
+            },
+            {
+              "topic": "Philadelphia Eagles hate",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/NYGiants"],
+              "related": ["Eagles losses", "Jalen Hurts struggles", "Philly fan meltdowns", "Saquon revenge narratives"],
+              "note": "Any Eagles bad news is good news"
+            },
+            {
+              "topic": "NYT Games",
+              "type": "lifestyle",
+              "sources": ["nytimes", "reddit:r/crossword", "reddit:r/wordle"],
+              "related": ["Mini crossword", "Wordle", "Connections", "Strands", "viral puzzle drama"]
+            },
+            {
+              "topic": "Juventus",
+              "type": "sports",
+              "sources": ["espn", "reddit:r/Juve"],
+              "related": ["Serie A", "Italian football"]
+            }
+          ],
+          "social_platforms": ["instagram"],
+          "notes": "Posts 'this or that' questions on Instagram every Thursday. Guy's guy. NYC sports-centric worldview. Hates Philly with passion."
+        },
+        {
+          "name": "Noah",
+          "location": "New York, NY",
+          "always_interests": [
+            {
+              "topic": "Financial markets",
+              "type": "finance",
+              "sources": ["bloomberg", "wsj", "ft", "reddit:r/wallstreetbets", "reddit:r/finance"],
+              "related": ["Fed interest rate decisions", "Jerome Powell speeches", "inflation data", "Treasury yields", "private equity news", "M&A activity", "IPO market"]
+            },
+            {
+              "topic": "Private equity industry",
+              "type": "finance",
+              "sources": ["pitchbook", "bloomberg", "wsj"],
+              "related": ["PE fundraising", "notable deals", "firm launches", "LP sentiment", "dry powder levels", "PE secondaries market"]
+            },
+            {
+              "topic": "Financial fraudsters and white collar crime",
+              "type": "news",
+              "sources": ["wsj", "bloomberg", "reddit:r/news"],
+              "related": ["SBF prison updates", "Elizabeth Holmes", "fraudster pardons", "SEC enforcement", "crypto scams", "Ponzi schemes unraveling", "billionaire legal troubles"],
+              "note": "Loves jokes about fraudsters facing consequences"
+            }
+          ],
+          "sometimes_interests": [
+            {
+              "topic": "Call of Duty / Warzone",
+              "type": "gaming",
+              "sources": ["reddit:r/CODWarzone", "twitch", "youtube"],
+              "related": ["CDL (Call of Duty League)", "notable streamers (TimTheTatman, Nickmercs, etc.)", "Warzone meta updates", "new CoD releases"],
+              "note": "Used to be big into it - still follows casually"
+            },
+            {
+              "topic": "United Airlines / Travel",
+              "type": "lifestyle",
+              "sources": ["reddit:r/unitedairlines", "tpg (the points guy)"],
+              "related": ["Global Services perks", "Polaris lounges", "London flight routes", "airline drama", "flight delays/cancellations"],
+              "note": "Travels to London frequently on United GS"
+            },
+            {
+              "topic": "Ozempic / GLP-1 drugs",
+              "type": "health",
+              "sources": ["wsj", "nytimes", "reddit:r/Ozempic"],
+              "related": ["Wegovy", "Mounjaro", "Zepbound", "GLP-1 shortage news", "celebrity weight loss", "pharma stock moves (Novo Nordisk, Eli Lilly)"],
+              "note": "Recently started - probably interested in news but maybe not wanting to broadcast it"
+            },
+            {
+              "topic": "NYC restaurants",
+              "type": "lifestyle",
+              "sources": ["eater", "infatuation", "nytimes:food"],
+              "related": ["new openings", "hard reservations", "chef moves", "Michelin updates"]
+            },
+            {
+              "topic": "Parenting / toddler life",
+              "type": "lifestyle",
+              "sources": [],
+              "related": ["2-year-old milestones", "having a second kid", "NYC family life"],
+              "note": "Has a 2-year-old son, wants another kid with wife Rachel. Probably not a primary convo topic but good to be aware of."
+            }
+          ],
+          "social_platforms": [],
+          "notes": "Starting his own PE firm soon - needs strong conversation starters for networking. Politically agnostic but economically motivated (lower rates = happy). Dark sense of humor about white collar criminals."
+        },
+        {
+          "name": "Chu",
+          "location": "New York, NY",
+          "company": "Blue Owl",
+          "always_interests": [
+            {
+              "topic": "Blue Owl Capital",
+              "type": "finance",
+              "sources": ["bloomberg", "wsj", "pitchbook"],
+              "related": ["Blue Owl earnings", "Blue Owl deals", "private credit industry news", "direct lending market", "Blue Owl stock (OWL)"]
+            },
+            {
+              "topic": "NYC restaurants and bars",
+              "type": "lifestyle",
+              "sources": ["eater", "infatuation", "nytimes:food", "grubstreet"],
+              "related": ["new restaurant openings", "hot reservations (Tatiana, Don Angie, etc.)", "chef news", "bar rankings", "best new restaurants lists", "Michelin NYC", "James Beard awards"]
+            },
+            {
+              "topic": "Streaming TV shows",
+              "type": "entertainment",
+              "sources": ["netflix", "variety", "reddit:r/television", "vulture"],
+              "related": ["Severance (Apple TV)", "Ted Lasso (Apple TV)", "Bridgerton (Netflix)", "Stranger Things (Netflix)", "Selling Sunset (Netflix)", "Owning Manhattan (Netflix)", "new show releases", "show renewals/cancellations", "what to watch next"]
+            }
+          ],
+          "sometimes_interests": [
+            {
+              "topic": "Private credit industry",
+              "type": "finance",
+              "sources": ["bloomberg", "wsj", "ft"],
+              "related": ["direct lending deals", "private credit vs banks", "credit spreads", "default rates", "private credit AUM growth"]
+            },
+            {
+              "topic": "Reality TV",
+              "type": "entertainment",
+              "sources": ["vulture", "reddit:r/BraseBravoRealHousewives", "variety"],
+              "related": ["Real Housewives", "Summer House", "Vanderpump Rules", "reality TV drama", "reunion episodes"]
+            },
+            {
+              "topic": "Celebrity/pop culture news",
+              "type": "entertainment",
+              "sources": ["pagesix", "tmz", "deuxmoi", "reddit:r/popculturechat"],
+              "related": ["celebrity gossip", "fashion moments", "viral moments", "awards shows"]
+            },
+            {
+              "topic": "Top Chef / Food TV",
+              "type": "entertainment",
+              "sources": ["eater", "vulture", "reddit:r/TopChef"],
+              "related": ["Top Chef seasons", "chef contestants opening restaurants", "food competition shows", "celebrity chef news"]
+            }
+          ],
+          "social_platforms": ["instagram"],
+          "notes": "Works in private credit at Blue Owl. Good mix of finance professional and lifestyle interests. Responds well to 'did you see that article about...' type conversation starters about restaurants or shows."
+        }
+      ]
+    }
+  ]
+}
