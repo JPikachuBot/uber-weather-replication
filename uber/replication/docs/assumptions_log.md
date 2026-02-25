@@ -174,3 +174,37 @@ rain has a weaker margin effect. The difference is $0.012/mile — roughly a 14%
 This is directionally consistent with Assumption B2's concern (different rider composition
 in summer), but the difference is small enough that it does not invalidate the business case.
 It does mean the high-scenario annualization assumptions should be treated conservatively.
+
+---
+
+## Phase 5 — Experiment Design
+
+*Appended: 2026-02-24*
+
+The following assumptions underpin the experiment design. They are new to Phase 5 — not inherited from previous phases.
+
+---
+
+**D1: The trip-level standard deviation of margin per mile is approximately $0.60/mile.**
+
+The sample size calculation requires a trip-level estimate of margin per mile variance. The baseline model operates on hourly aggregates (which smooth out within-hour variance), so no directly-computed trip-level SD is available from Phase 3 outputs. The $0.60/mile estimate is derived from the known mean ($1.30/mile) and typical coefficient of variation for airport rideshare fare data (~46%). This is the primary uncertainty in the sample size calculation. If the true trip-level SD is materially higher (e.g., $0.80/mile due to a wide mix of short and long LGA trips), the required sample size increases to approximately 8,150 trips per arm — still achievable within the 8-week test window given the 4.8× safety margin. If SD is lower (e.g., $0.40/mile), required sample drops to ~2,040 per arm and the statistical minimum duration falls below 1 week. The 8-week duration recommendation is robust to this uncertainty.
+
+**D2: Rider-level randomization (by persistent UUID hash) produces balanced treatment and control arms across relevant covariates.**
+
+The randomization is assumed to distribute rider types (frequent LGA travelers vs. occasional users, business vs. leisure travelers, morning vs. evening fliers) approximately equally between arms over an 8-week window. If LGA's rider population has a strong structural imbalance — for example, if medallion accounts or corporate travel managers are assigned disproportionately to one arm — covariate imbalance could bias the result. Standard practice is to confirm balance at launch by comparing pre-experiment trip frequency, fare levels, and traveler type distributions across arms.
+
+**D3: Average rain event duration is approximately 4 hours.**
+
+The estimate of ~21 independent rain events in 8 weeks is derived by dividing 84 total rain hours by an assumed average event duration of 4 hours. If rain events at LGA average longer (e.g., 6 hours per event from multi-day frontal systems), the independent event count falls to ~14 — still adequate for inference but at the lower bound of what is comfortable. If events are shorter (2-hour convective storms in summer), the count rises to ~42. The 8-week recommendation is designed to be adequate even under the longer-event assumption.
+
+**D4: Uber's internal event data platform can attribute margin per mile to individual trips in real time during the experiment.**
+
+The experiment's primary metric (margin per mile per completed trip) requires matching trip-level fare data with trip-level driver pay data and trip distance — fields that exist in Uber's internal data systems but are not guaranteed to be joined and queryable at experiment monitoring frequency. This is an engineering assumption, not an analytical one. The Marketplace Engineering team must confirm that the necessary data pipeline can support daily or weekly experiment readouts before the experiment launches.
+
+**D5: The control arm's pricing is stable throughout the experiment — Uber does not make changes to its standard surge algorithm during the test window.**
+
+If Uber's Pricing team deploys any changes to the standard dynamic pricing model during the 8-week test, the control condition changes mid-experiment. This would invalidate the comparison. The experiment should be registered with the Pricing team to ensure no confounding algorithm changes are deployed to LGA during the test window.
+
+**D6: The 5% trip volume kill threshold is calibrated to the point at which treatment-arm margin gains are approximately offset by volume losses.**
+
+At a $0.073/mile treatment effect and $1.30/mile baseline margin, a 5% volume reduction produces a net opportunity reduction of approximately $0.065/mile × 0.05 = $0.003/mile in aggregate — a small offset. At 5% volume loss, the net margin opportunity is still approximately $0.073 − $0.003 = $0.070/mile, which remains well above the $0.04 MDE. The 5% threshold is therefore conservative: experiment kills occur before margin gains are fully offset by volume losses. If the business tolerance for volume loss is lower (e.g., Uber values completed trip volume for driver retention independent of margin), the kill threshold should be tightened to 3% before the experiment launches.
