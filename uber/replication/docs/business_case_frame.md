@@ -99,4 +99,36 @@ This calculation produces gross margin opportunity — the dollar value of the o
 
 ---
 
-*Updated by Phase 4 with dollar figures once opportunity sizing is complete.*
+---
+
+## Phase 4 Dollar Figures — Updated 2026-02-24
+
+> Computed by `src/models/opportunity_sizing.py`. Full methodology and sensitivity in `outputs/tables/opportunity_sizing_scenarios.csv` and `outputs/tables/sensitivity_analysis.csv`.
+
+### Coefficient Update
+
+The Phase 2 frame anticipated the original cold-only M1 coefficient of $0.0847/mile. Phase 3 reran M1 with all-season data and HC3-robust standard errors, producing **$0.073/mile** (95% CI: $0.0494–$0.0967, p < 0.001, N = 5,662). Per the Phase 2 update rule ("if the new coefficient differs materially, Phase 4 updates all scenarios accordingly"), all scenarios below use $0.073/mile.
+
+### Volume Note
+
+Light rain hours at LGA have **lower** trip volume (528.6 trips/hr) than no-rain hours (555.6 trips/hr). Rain slightly suppresses trip count — likely driver supply constraints. The High scenario is elevated via annualization (1.70×), not via a volume premium. This is disclosed explicitly in the outputs.
+
+### Scenario Results
+
+| Scenario | Annual light rain hours | Trips/hr | Trip miles | Coef ($/mile) | **Annual opportunity (USD)** |
+|---|---|---|---|---|---|
+| **Low** | 499.8 (357 × 1.40) | 555.6 (baseline) | 11.337 | $0.0494 (CI lower) | **$155,533** |
+| **Mid** | 553.4 (357 × 1.55) | 555.6 (baseline) | 11.337 | $0.073 (point est.) | **$254,461** |
+| **High** | 606.9 (357 × 1.70) | 528.6 (rain-period) | 11.384 | $0.073 (point est.) | **$266,589** |
+
+**Summary:** Weather-responsive pricing at LGA could add **$156K–$267K in annual gross margin** during light rain events (mid estimate: **$254K**), subject to elasticity validation via A/B experiment.
+
+### Sensitivity (Mid anchor, ±10% volume, ±1 SE coefficient)
+
+Full sensitivity table at `outputs/tables/sensitivity_analysis.csv`. Range across all combinations: **$191K–$327K**.
+
+Even under pessimistic conditions (−10% volume, −1 SE on coefficient), the opportunity remains above **$191K** annually.
+
+### Interpretation
+
+The $0.073/mile coefficient is statistically significant and present in all-season data, not just cold months — strengthening the case for weather-responsive pricing year-round at LGA. The dollar estimate assumes the full coefficient represents unrealized opportunity; the A/B experiment (Phase 5) is the only mechanism to determine what share current surge pricing already captures. Until that experiment runs, treat these figures as the sizing of the prize, not a confirmed revenue projection.

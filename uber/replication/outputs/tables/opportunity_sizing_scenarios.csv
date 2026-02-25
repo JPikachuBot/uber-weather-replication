@@ -1,0 +1,4 @@
+Scenario,Light rain hours observed (Jan–Aug),Annualization factor,Annualization basis,Estimated annual light rain hours,Avg trips per rain hour,Trip volume basis,Avg trip miles,Margin uplift coefficient ($/mile),Coefficient basis,Annual margin opportunity (USD)
+Low,357,1.4,Conservative: Sep–Dec ≈ Jan–Aug rain rate,499.8,555.6,Baseline (no-rain avg),11.337,0.0494,95% CI lower bound,155533.0
+Mid,357,1.55,Day-ratio 365/238 = 1.533 + modest fall premium,553.4,555.6,Baseline (no-rain avg),11.337,0.073,Point estimate,254461.0
+High,357,1.7,Optimistic: Sep–Nov ~30% rainier than Jan–Aug avg,606.9,528.6,Observed rain-period avg (lower than baseline),11.384,0.073,Point estimate,266589.0

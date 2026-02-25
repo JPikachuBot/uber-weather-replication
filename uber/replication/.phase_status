@@ -1,0 +1,15 @@
+2026-02-24 21:37:49 | TEST | notify.sh test — chain is live
+2026-02-24 21:55:08 | RUNNING | Phase 0 starting — repo setup
+2026-02-24 21:55:56 | TEST | Phase 0 test — notify.sh installed
+2026-02-24 21:56:51 | COMPLETE | Phase 0 complete — repos initialized, notify.sh live
+2026-02-24 21:57:12 | HEARTBEAT | Heartbeat — last status: 2026-02-24 21:56:51 | COMPLETE | Phase 0 complete — repos initialized, notify.sh live
+2026-02-24 22:01:18 | RUNNING | Phase 1 starting
+2026-02-24 22:07:15 | COMPLETE | Phase 1 complete — docs/audit.md written: data sources confirmed, model specs documented (E0/E1), 3 strengths and 3 gaps identified, 8 implicit assumptions logged
+2026-02-24 22:07:41 | HEARTBEAT | Heartbeat — last status: 2026-02-24 22:07:15 | COMPLETE | Phase 1 complete — docs/audit.md written: data sources confirmed, model specs documented (E0/E1), 3 strengths and 3 gaps identified, 8 implicit assumptions logged
+2026-02-24 22:10:37 | RUNNING | Phase 2 starting — business case frame
+2026-02-24 22:12:18 | COMPLETE | Phase 2 complete — recommendation, falsifiable hypothesis, dollar figure methodology, and assumptions table written to docs/business_case_frame.md
+2026-02-24 22:12:34 | HEARTBEAT | Heartbeat — last status: 2026-02-24 22:12:18 | COMPLETE | Phase 2 complete — recommendation, falsifiable hypothesis, dollar figure methodology, and assumptions table written to docs/business_case_frame.md
+2026-02-24 22:13:39 | RUNNING | Phase 3 starting — baseline model rebuild
+2026-02-24 22:22:44 | COMPLETE | Phase 3 complete — baseline model rebuilt: light rain +$0.073/mile (all-season, robust SEs, p<0.001); heavy rain not significant; 4 models + 3 charts + notebook saved
+2026-02-24 22:23:11 | HEARTBEAT | Heartbeat — last status: 2026-02-24 22:22:44 | COMPLETE | Phase 3 complete — baseline model rebuilt: light rain +$0.073/mile (all-season, robust SEs, p<0.001); heavy rain not significant; 4 models + 3 charts + notebook saved
+2026-02-24 22:24:30 | RUNNING | Phase 4 starting
