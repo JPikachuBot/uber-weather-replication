@@ -43,3 +43,41 @@ The Breusch-Godfrey test (p ≈ 1.3e-173) and Durbin-Watson statistic (0.853) co
 **A8: The hourly aggregation unit preserves the economically relevant variation.**
 
 All trip-level fare, pay, and distance data are aggregated to hourly means before modeling. This means the analysis captures whether the average trip in a rainy hour earns more margin per mile than the average trip in a dry hour. It does not capture within-hour heterogeneity (e.g., whether specific trip types — short vs. long, peak vs. off-peak within the hour — respond differently to weather). The hourly mean is a sufficient statistic for the business question only if the effect of weather on margin is approximately uniform across trip types within an hour.
+
+---
+
+## Phase 2 — Business Case Frame
+
+*Appended: 2026-02-24*
+
+The following assumptions underpin the business case frame and the dollar figure methodology defined in Phase 2. They are not inherited from the original work — they are new assumptions introduced by the decision to translate regression coefficients into an actionable pricing recommendation.
+
+---
+
+**B1: The observed margin uplift during light rain is not already fully captured by Uber's current dynamic pricing.**
+
+The M1 coefficient (+$0.0847/mile) shows that margin per mile is higher during light rain hours than equivalent non-rain hours after controlling for economic and seasonal factors. This uplift could arise from two distinct mechanisms: (a) Uber's surge pricing algorithm is already responding to rain-driven demand and capturing more margin, or (b) trip composition shifts during rain (shorter, higher-margin trips self-select) create the uplift independent of pricing. Mechanism (a) means the incremental opportunity from explicit weather pricing is near zero; mechanism (b) means pricing is not the driver and a fare multiplier could capture additional margin. The historical data cannot distinguish between these mechanisms. B1 assumes mechanism (b) dominates, or that (a) is only partial. This is the central assumption the experiment tests.
+
+**B2: The cold-weather rain coefficient generalizes to all-season rain at LGA.**
+
+The M1 model was estimated on 2,205 cold-weather hours (temperature ≤ 50°F). Rain events in May–August are excluded from the coefficient estimate. Warm-weather rain at LGA may involve different rider demographics (leisure travelers vs. business travelers) and different competitive dynamics. If the warm-weather rain coefficient is materially lower than +$0.0847/mile, the annualized opportunity estimate overstates the true opportunity. Phase 3 will test for season interaction effects.
+
+**B3: Rider demand at LGA is sufficiently inelastic to sustain a 15–20% fare increase during rain without volume declining more than 5%.**
+
+Airport demand is generally less elastic than street-hail demand because: riders have fixed departure constraints, the alternative (taxis, car services) is not cheaper at LGA, and time sensitivity is high. A 5% volume tolerance is the threshold at which the margin uplift from higher per-mile pricing is approximately offset by lower trip volume. If elasticity is higher, the net margin impact approaches zero even if the fare increase succeeds. This assumption is embedded in all three scenario bounds.
+
+**B4: The annualization factors of 1.40–1.70× adequately translate Jan–Aug rain observations to a full-year estimate.**
+
+The observed 385 light rain hours cover January 1 through August 27 (239 days). The annualization factor must account for September–December, which includes NYC's wetter fall months. NOAA climatological normals for LGA suggest September–November average 3.5–4.0 inches of rain per month, comparable to or slightly above the Jan–Aug monthly average. The 1.55× mid-scenario (simple day-ratio) is conservative by this measure; 1.70× reflects the fall rain premium. These factors will be validated against NOAA historical monthly data in Phase 4.
+
+**B5: The $0.044/mile lower CI bound from M1 is an appropriate conservative floor for the opportunity estimate.**
+
+The lower bound of the 95% confidence interval on the M1 light rain coefficient is $0.044/mile in the original work (non-robust standard errors). Phase 3 will rerun with HC3 robust standard errors; the CI may widen. The low scenario uses the Phase 3 robust CI lower bound, not the original non-robust bound. If robust standard errors make the lower CI negative or statistically insignificant, the low scenario must be set to zero and the business case depends entirely on the experiment.
+
+**B6: Average trip miles during light rain hours are approximately equal to non-rain baseline trip miles.**
+
+If rain disproportionately eliminates long trips (e.g., business travelers cancel, only short-haul trips complete), the dollar opportunity shrinks even if the per-mile coefficient holds. This assumption is not tested in the original work. Phase 3 data quality review will compare avg_trip_miles across weather regimes and flag material differences.
+
+**B7: Driver pay per mile does not systematically increase during rain events in a way that offsets fare-side margin gains.**
+
+If Uber's matching algorithm increases driver incentives during rain to maintain driver supply, the gross fare margin uplift could be offset by higher driver pay per mile. The coefficient in M1 is margin per mile (fare minus driver pay), so this offset is captured in the model — but only if driver pay adjustments are included in the historical data used to fit the model. Phase 3 will check driver_pay_pct_of_base_fare by weather regime to confirm this is already controlled for in the dependent variable.
