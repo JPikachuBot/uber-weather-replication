@@ -1,0 +1,26 @@
+Metric,Value,Notes
+Total hourly observations,5702,"Jan 1 – Aug 27, 2025"
+Date range (start),2025-01-01,
+Date range (end),2025-08-27,
+Hours: No rain,5317 (93.2%),Based on precipitation threshold
+Hours: Light rain (>0 mm/hr),357 (6.3%),Based on precipitation threshold
+Hours: Heavy rain (≥5 mm/hr),28 (0.5%),Based on precipitation threshold
+Completeness: margin_per_mile,5702/5702 (100.0%),Complete
+Completeness: avg_base_passenger_fare,5702/5702 (100.0%),Complete
+Completeness: request_count,5702/5702 (100.0%),Complete
+Completeness: Precipitation amount (mm/hr),5702/5702 (100.0%),Complete
+Completeness: Air temperature (°F),5663/5702 (99.3%),39 missing
+Completeness: Driver pay share of fare,5702/5702 (100.0%),Complete
+Completeness: Average trip distance (miles),5702/5702 (100.0%),Complete
+Completeness: Average trip duration (minutes),5702/5702 (100.0%),Complete
+Completeness: Wind chill temperature (°F) [cold hours only],2206/5702 (38.7%),3496 missing
+Note: wind_chill_f non-null rows,2206,Cold hours only (temp≤50°F AND wind≥3mph). Original M1 was limited to this subset.
+Avg margin/mile — Heavy rain (≥5 mm/hr),$1.3299,"n=28, median=$1.4171"
+Avg margin/mile — Light rain (>0 mm/hr),$1.2685,"n=357, median=$1.2457"
+Avg margin/mile — No rain,$1.3079,"n=5317, median=$1.2965"
+Avg driver pay share — Heavy rain (≥5 mm/hr),73.3%,Check: does driver pay compress during rain? (Assumption B7)
+Avg driver pay share — Light rain (>0 mm/hr),73.7%,Check: does driver pay compress during rain? (Assumption B7)
+Avg driver pay share — No rain,72.6%,Check: does driver pay compress during rain? (Assumption B7)
+Avg trip miles — Heavy rain (≥5 mm/hr),11.75 miles,Check: are rain trips shorter? (Assumption B6)
+Avg trip miles — Light rain (>0 mm/hr),11.38 miles,Check: are rain trips shorter? (Assumption B6)
+Avg trip miles — No rain,11.34 miles,Check: are rain trips shorter? (Assumption B6)

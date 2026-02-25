@@ -81,3 +81,96 @@ If rain disproportionately eliminates long trips (e.g., business travelers cance
 **B7: Driver pay per mile does not systematically increase during rain events in a way that offsets fare-side margin gains.**
 
 If Uber's matching algorithm increases driver incentives during rain to maintain driver supply, the gross fare margin uplift could be offset by higher driver pay per mile. The coefficient in M1 is margin per mile (fare minus driver pay), so this offset is captured in the model — but only if driver pay adjustments are included in the historical data used to fit the model. Phase 3 will check driver_pay_pct_of_base_fare by weather regime to confirm this is already controlled for in the dependent variable.
+
+---
+
+## Phase 3 — Baseline Model
+
+*Appended: 2026-02-24*
+
+### Methodology Note (Plain English)
+
+**What the models do:**
+
+We measured how Uber's margin per mile at LaGuardia changes during rain, after accounting
+for everything else we know affects margin: how long and far trips go, how many drivers are
+on the road (lagged demand), and how much Uber pays drivers relative to the fare.
+
+We ran two models. The first (M0) uses only the economic controls — trip length, duration,
+demand pressure, and driver pay share. The second (M1) adds four weather variables: whether
+it was raining at all, whether it was raining hard, how many millimeters of rain fell, and
+the air temperature. Both models strip out the regular time-of-week and seasonal patterns
+before estimation, so the weather effects are measured relative to what we'd expect for that
+hour on a typical dry day of the same month.
+
+**Key improvement: fixed the sample restriction problem.**
+
+The original analysis used a "wind chill" variable that is only defined on cold, windy days
+(temperature ≤ 50°F AND wind speed ≥ 3 mph). Because the model dropped every hour where
+wind chill was not defined, it was silently estimated on only 2,205 of the 5,702 available
+hours — primarily October through April. Any estimated effect of rain was therefore specific
+to cold-season rain and could not speak to rain during warmer months.
+
+This replication uses air temperature instead of wind chill. Air temperature is measured
+every hour throughout the year, allowing M1 to run on all 5,662 eligible hours (all seasons).
+The resulting rain coefficient is a better estimate of the average effect across all LGA
+rain events, not just winter ones.
+
+**Standard errors: why this matters for the dollar figure.**
+
+The original models did not use robust standard errors, even though statistical tests
+confirmed that the variance of model errors was not constant across observations
+(a violation of ordinary regression assumptions). When variance is uneven, standard
+confidence intervals are too narrow — they overstate how certain we are of the estimate.
+
+This replication uses HC3 robust standard errors throughout. This makes confidence intervals
+wider and more honest. The light rain coefficient remains statistically significant (p<0.001)
+even with the stricter standard. The heavy rain coefficient does NOT survive this stricter
+test: p=0.20 on the full dataset, p=0.16 even on cold hours only. This matters for Phase 4:
+heavy rain should not be included in the opportunity sizing.
+
+**What Phase 3 found:**
+
+- Light rain is associated with **+$0.073 per mile** in margin uplift (95% CI: $0.049–$0.097),
+  holding trip length, duration, demand pressure, and driver pay share constant.
+- This effect is robust: it holds in all seasons, with proper standard errors, and across
+  the representative rainy day vs dry baseline comparison (Chart 2).
+- Heavy rain shows a negative coefficient (-$0.073/mile) but it is not statistically
+  distinguishable from zero. Do not build a business case around heavy rain findings.
+- Driver pay share during light rain (~73.7%) is slightly higher than during dry hours
+  (~72.6%), confirming that some margin gain is offset by driver costs — but this offset
+  is already embedded in the margin per mile variable and captured by M1.
+- Average trip miles during rain (11.38 mi) are essentially equal to dry-hour averages
+  (11.34 mi), confirming Assumption B6: rain is not disproportionately selecting
+  shorter or longer trips.
+
+**What Phase 4 will use from Phase 3:**
+
+- Light rain coefficient: **+$0.073/mile** (all-season M1, HC3 robust SEs)
+- 95% CI lower bound: **+$0.049/mile** (Phase 4 low scenario)
+- Light rain hours observed: 385 total (357 light-only + 28 heavy, Jan–Aug 2025)
+- Average trips per light rain hour: to be computed in Phase 4 from TLC volume data
+
+**C1: The heavy rain coefficient is not significant and should not be included in opportunity sizing.**
+
+With HC3 robust standard errors on the full all-season dataset (n=5,662), the heavy rain
+binary coefficient is -$0.073/mile with p=0.20. Even on the cold-season subset replicating
+the original model (n=2,205), heavy rain produces p=0.164 with robust SEs. The original
+p=0.011 was an artifact of non-robust inference. Phase 4 correctly excludes heavy rain
+from the opportunity sizing per Phase 4 instructions.
+
+**C2: The all-season light rain coefficient ($0.073) is the appropriate base for Phase 4, not the cold-season coefficient ($0.085).**
+
+The cold-season-specific coefficient inflates the estimate because it reflects rain effects
+only during winter, when LGA trip composition and demand patterns differ from warmer months.
+The all-season coefficient is more conservative, more generalizable, and methodologically
+more defensible. Using $0.073 as the point estimate and $0.049 as the low-scenario floor
+appropriately reflects the uncertainty in the estimate.
+
+**C3: The "warm-season rain discount" is real but modest.**
+
+All-season coefficient ($0.073) vs cold-season coefficient ($0.085) implies warm-season
+rain has a weaker margin effect. The difference is $0.012/mile — roughly a 14% discount.
+This is directionally consistent with Assumption B2's concern (different rider composition
+in summer), but the difference is small enough that it does not invalidate the business case.
+It does mean the high-scenario annualization assumptions should be treated conservatively.
